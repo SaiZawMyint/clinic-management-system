@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE tiles-definitions PUBLIC  
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="init" extends="tiles">
+        <put-attribute name="title" value="Clinic Management System" />
+        <put-attribute name="body"
+            value="/WEB-INF/pages/user/home.jsp" />
+    </definition>    
+    
+    <definition name="contact" extends="tiles">
+        <put-attribute name="title" value="Contact Us" />
+        <put-attribute name="body"
+            value="/WEB-INF/pages/user/contact.jsp" />
+    </definition>
+    
+    <definition name="about" extends="tiles">
+        <put-attribute name="title" value="About Us" />
+        <put-attribute name="body"
+            value="/WEB-INF/pages/user/aboutus.jsp" />
+    </definition>
+
+    <definition name="login" extends="tiles">
+        <put-attribute name="title"
+            value="Membership Login" />
+        <put-attribute name="body"
+            value="/WEB-INF/pages/user/login.jsp" />
+    </definition>
+
+    <definition name="dashboard" extends="dashboardTiles">
+        <put-attribute name="title" value="Dashboard" />
+        <put-attribute name="dashboard"
+            value="/WEB-INF/pages/user/dashboard.jsp" />
+        <put-attribute name="body" value="" />
+    </definition>
+
+    <definition name="patientInfo" extends="tiles">
+        <put-attribute name="title"
+            value="Patient Registratoin" />
+        <put-attribute name="body"
+            value="/WEB-INF/pages/patientInfo/patientInfo.jsp" />
+    </definition>
+
+    <definition name="patientInfoView"
+        extends="dashboardTiles">
+        <put-attribute name="title" value="Patient Lists" />
+        <put-attribute name="dashboard"
+            value="/WEB-INF/pages/patientInfo/patientInfoView.jsp" />
+    </definition>
+
+    <definition name="todayPatientView"
+        extends="dashboardTiles">
+        <put-attribute name="title"
+            value="Today Patient Lists" />
+        <put-attribute name="dashboard"
+            value="/WEB-INF/pages/patientInfo/todayPatientList.jsp" />
+    </definition>
+
+    <definition name="patientMedicalRecord" extends="tiles">
+        <put-attribute name="title"
+            value="Patient Medical Record" />
+        <put-attribute name="body"
+            value="/WEB-INF/pages/patientMedicalRecord/patientMedicalRecord.jsp" />
+    </definition>
+
+    <definition name="patientMedicalRecordView"
+        extends="dashboardTiles">
+        <put-attribute name="title"
+            value="Patient Medical Record List" />
+        <put-attribute name="dashboard"
+            value="/WEB-INF/pages/patientMedicalRecord/patientMedicalRecordView.jsp" />
+    </definition>
+
+    <definition name="doctor" extends="tiles">
+        <put-attribute name="title"
+            value="Doctor Registration" />
+        <put-attribute name="body"
+            value="/WEB-INF/pages/doctor/doctorregistration.jsp" />
+    </definition>
+
+    <definition name="doctorView" extends="dashboardTiles">
+        <put-attribute name="title" value="Doctor Lists" />
+        <put-attribute name="dashboard"
+            value="/WEB-INF/pages/doctor/doctorview.jsp" />
+    </definition>
+    <definition name="doctorSchedule"
+        extends="dashboardTiles">
+        <put-attribute name="title"
+            value="Doctor Schedule" />
+        <put-attribute name="dashboard"
+            value="/WEB-INF/pages/doctor/schedule.jsp" />
+    </definition>
+
+    <definition name="receptionist" extends="tiles">
+        <put-attribute name="title"
+            value="Receptionist Registration" />
+        <put-attribute name="body"
+            value="/WEB-INF/pages/receptionist/receptionistregistration.jsp" />
+    </definition>
+
+    <definition name="receptionistView"
+        extends="dashboardTiles">
+        <put-attribute name="title"
+            value="Receptionist Lists" />
+        <put-attribute name="dashboard"
+            value="/WEB-INF/pages/receptionist/viewreceptionistlist.jsp" />
+    </definition>
+
+    <definition name="booking" extends="tiles">
+        <put-attribute name="title" value="Booking" />
+        <put-attribute name="body"
+            value="/WEB-INF/pages/booking/booking.jsp" />
+    </definition>
+
+    <definition name="bookingView" extends="dashboardTiles">
+        <put-attribute name="title" value="Booking Lists" />
+        <put-attribute name="dashboard"
+            value="/WEB-INF/pages/booking/bookingView.jsp" />
+    </definition>
+    
+    <!-- Today Patient -->
+    <definition name="addTodayPatient" extends="tiles">
+        <put-attribute name="title" value="Add Today Patient" />
+        <put-attribute name="body"
+            value="/WEB-INF/pages/patientInfo/addTodayPatient.jsp" />
+    </definition>
+
+    <definition name="confirm" extends="tiles">
+        <put-attribute name="title" value="Confirm Page" />
+        <put-attribute name="body"
+            value="/WEB-INF/pages/common/confirmPage.jsp" />
+    </definition>
+</tiles-definitions>

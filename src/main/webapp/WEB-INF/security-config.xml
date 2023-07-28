@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans
+    xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+    http://www.springframework.org/schema/beans/spring-beans.xsd  
+    http://www.springframework.org/schema/security  
+    http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <!-- assign role -->
+    <http>
+        <intercept-url pattern="/dashboard"
+            access="hasAnyRole('ADMIN','DOCTOR','RECEPTIONIST')" />
+
+        <intercept-url pattern="/bookingView    "
+            access="hasAnyRole('ADMIN','RECEPTIONIST')" />
+        <intercept-url pattern="/allBookingView "
+            access="hasAnyRole('ADMIN','RECEPTIONIST')" />
+        <intercept-url pattern="/bookingSearch  "
+            access="hasAnyRole('ADMIN','RECEPTIONIST')" />
+        <intercept-url pattern="/allBookingSearch   "
+            access="hasAnyRole('ADMIN','RECEPTIONIST')" />
+        <intercept-url pattern="/editBooking/{id}   "
+            access="hasAnyRole('RECEPTIONIST')" />
+        <intercept-url pattern="/deleteBooking/{id} "
+            access="hasAnyRole('RECEPTIONIST')" />
+        <intercept-url pattern="/downloadBooking"
+            access="hasAnyRole('ADMIN','RECEPTIONIST')" />
+
+        <intercept-url pattern="/doctorInit"
+            access="hasAnyRole('ADMIN')" />
+        <intercept-url pattern="/addDoctorConfirm"
+            access="hasAnyRole('ADMIN')" />
+        <intercept-url pattern="/addDoctor"
+            access="hasAnyRole('ADMIN')" />
+        <intercept-url pattern="/doctorView"
+            access="hasAnyRole('ADMIN')" />
+        <intercept-url pattern="/doctorSearch"
+            access="hasAnyRole('ADMIN')" />
+        <intercept-url pattern="/editDoctor/{id}"
+            access="hasAnyRole('ADMIN')" />
+        <intercept-url pattern="/deleteDoctor/{id}"
+            access="hasAnyRole('ADMIN')" />
+        <intercept-url pattern="/doctorSchedule "
+            access="hasAnyRole('DOCTOR')" />
+
+        <intercept-url pattern="/receptionistInit"
+            access="hasAnyRole('ADMIN')" />
+        <intercept-url pattern="/addReceptionistConfirm "
+            access="hasAnyRole('ADMIN')" />
+        <intercept-url pattern="/addReceptionistConfirm "
+            access="hasAnyRole('ADMIN')" />
+        <intercept-url pattern="/receptionistView"
+            access="hasAnyRole('ADMIN')" />
+        <intercept-url pattern="/receptionistSearch"
+            access="hasAnyRole('ADMIN')" />
+        <intercept-url pattern="/editReceptionist/{id}"
+            access="hasAnyRole('ADMIN')" />
+        <intercept-url pattern="/deleteReceptionist/{id}"
+            access="hasAnyRole('ADMIN')" />
+
+        <intercept-url pattern="/patientInit"
+            access="hasAnyRole('RECEPTIONIST')" />
+        <intercept-url pattern="/addPatientInfoConfirm"
+            access="hasAnyRole('RECEPTIONIST')" />
+        <intercept-url pattern="/addPatientInfo"
+            access="hasAnyRole('RECEPTIONIST')" />
+        <intercept-url pattern="/patientInfoView"
+            access="hasAnyRole('ADMIN','DOCTOR','RECEPTIONIST')" />
+        <intercept-url pattern="/patientInfoSearch"
+            access="hasAnyRole('ADMIN','DOCTOR','RECEPTIONIST')" />
+        <intercept-url pattern="/todayPatientView"
+            access="hasAnyRole('ADMIN','DOCTOR','RECEPTIONIST')" />
+        <intercept-url pattern="/addTodayPatient/{id}"
+            access="hasAnyRole('RECEPTIONIST')" />
+        <intercept-url pattern="/changeStatus/{id}"
+            access="hasAnyRole('DOCTOR')" />
+        <intercept-url pattern="/editPatientInfo/{id}"
+            access="hasAnyRole('RECEPTIONIST')" />
+        <intercept-url pattern="/deletePatientInfo/{id} "
+            access="hasAnyRole('RECEPTIONIST')" />
+        <intercept-url pattern="/downloadPatientInfo"
+            access="hasAnyRole('ADMIN','RECEPTIONIST')" />
+        <intercept-url pattern="/uploadPatientInfoConfirm"
+            access="hasAnyRole('RECEPTIONIST')" />
+        <intercept-url pattern="/uploadPatientInfo"
+            access="hasAnyRole('RECEPTIONIST')" />
+
+        <intercept-url
+            pattern="/addPatientMedicalRecordConfirm"
+            access="hasAnyRole('DOCTOR','RECEPTIONIST')" />
+        <intercept-url pattern="/addPatientMedicalRecord"
+            access="hasAnyRole('DOCTOR','RECEPTIONIST')" />
+        <intercept-url
+            pattern="/addPatientMedicalRecord/{id}"
+            access="hasAnyRole('DOCTOR','RECEPTIONIST')" />
+        <intercept-url pattern="/medicalRecordView"
+            access="hasAnyRole('ADMIN','DOCTOR','RECEPTIONIST')" />
+        <intercept-url pattern="/medicalRecordView/{id}"
+            access="hasAnyRole('ADMIN','DOCTOR','RECEPTIONIST')" />
+        <intercept-url pattern="/recordSearch"
+            access="hasAnyRole('ADMIN','DOCTOR','RECEPTIONIST')" />
+        <intercept-url pattern="/recordSearchAll"
+            access="hasAnyRole('ADMIN','DOCTOR','RECEPTIONIST')" />
+        <intercept-url
+            pattern="/editPatientMedicalRecord/{id}"
+            access="hasAnyRole('DOCTOR','RECEPTIONIST')" />
+        <intercept-url
+            pattern="/deletePatientMedicalRecord/{id}"
+            access="hasAnyRole('RECEPTIONIST')" />
+        <intercept-url pattern="/downloadMedicalRecord  "
+            access="hasAnyRole('ADMIN','DOCTOR','RECEPTIONIST')" />
+        <intercept-url
+            pattern="/uploadMedicalRecordConfirm"
+            access="hasAnyRole('RECEPTIONIST')" />
+        <intercept-url pattern="/uploadMedicalRecord"
+            access="hasAnyRole('RECEPTIONIST')" />
+
+        <form-login login-page="/login"
+            login-processing-url="/login" username-parameter="userEmail"
+            password-parameter="userPassword"
+            authentication-success-handler-ref="successHandler" />
+        <logout logout-url="/logout" logout-success-url="/login" />
+        <access-denied-handler error-page="/error" />
+    </http>
+
+    <!-- password encrypt -->
+    <authentication-manager>
+        <authentication-provider
+            user-service-ref="userService">
+            <password-encoder
+                ref="bCryptPasswordEncoder" />
+        </authentication-provider>
+    </authentication-manager>
+</beans:beans>  
