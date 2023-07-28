@@ -3,3 +3,4 @@
 .setting
 target/
 .classpath
+.project
